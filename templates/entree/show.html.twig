@@ -1,0 +1,75 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Entree{% endblock %}
+
+{% block body %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <!--Made with love by Mutiullah Samim -->
+
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
+</head>
+
+<body class="bg-primary">
+<form method="post">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10 col-md-8 col-lg-6 col-xl-6">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-3 text-center">
+                            <div class="mb-md-3 mt-md-6 pb-5">
+
+                            <h1>Produit Entree</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entree.id }}</td>
+            </tr>
+            <tr>
+                <th>Date d'Entree</th>
+                <td>{{ entree.dateEntree ? entree.dateEntree|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Quantité Entree</th>
+                <td>{{ entree.qteEntree }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary btn-sm" href="{{ path('entree_index') }}">retour à la liste</a>
+
+    <a class="btn btn-primary btn-sm" href="{{ path('entree_edit', {'id': entree.id}) }}">Modifier</a>
+
+    {{ include('entree/_delete_form.html.twig') }}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+</body>
+</html>
+{% endblock %}
